@@ -1,6 +1,6 @@
 class PrettyTimeGrailsPlugin {
 
-    def version = '0.2'
+    def version = '0.2.1'
     def dependsOn = [:]
 
     def author = 'Cazacu Mihai'
