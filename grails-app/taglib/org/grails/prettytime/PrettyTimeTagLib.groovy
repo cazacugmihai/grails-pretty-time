@@ -13,6 +13,7 @@ import com.ocpsoft.pretty.time.units.Month
 import com.ocpsoft.pretty.time.units.Second
 import com.ocpsoft.pretty.time.units.Week
 import com.ocpsoft.pretty.time.units.Year
+import org.apache.commons.lang.StringUtils
 
 class PrettyTimeTagLib {
 
@@ -20,9 +21,14 @@ class PrettyTimeTagLib {
 
     def display = {attrs, body ->
         def date = attrs.remove('date')
+        def capitalize = Boolean.valueOf(attrs.remove('capitalize'))
+        
         if (!date) throw new PrettyTimeException(
                 "There must be a 'date' attribute included in the prettytime tag.")
-
+        if ('org.joda.time.DateTime'.equals(date.class.name)) {
+            date = date.toDate()
+        }
+        
         def prettyTime = new PrettyTime()
         prettyTime.units = [
                 justNowUnitToI18n(new JustNow()),
@@ -40,12 +46,14 @@ class PrettyTimeTagLib {
         ]
 
         String result = prettyTime.format(date)
+        if (capitalize) result = StringUtils.capitalize(result)
+
         out << result
     }
 
     private def unitToI18n(unit) {
         // pattern
-        unit.format.pattern = '%n %u '
+        unit.format.pattern = '%n %u'
         // name/pluralName
         def className = unit.class.name
         className = className[className.lastIndexOf('.') + 1..-1].toLowerCase()
