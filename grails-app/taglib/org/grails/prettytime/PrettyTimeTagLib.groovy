@@ -22,13 +22,13 @@ class PrettyTimeTagLib {
     def display = {attrs, body ->
         def date = attrs.remove('date')
         def capitalize = Boolean.valueOf(attrs.remove('capitalize'))
-        
+
         if (!date) throw new PrettyTimeException(
                 "There must be a 'date' attribute included in the prettytime tag.")
         if ('org.joda.time.DateTime'.equals(date.class.name)) {
             date = date.toDate()
         }
-        
+
         def prettyTime = new PrettyTime()
         prettyTime.units = [
                 justNowUnitToI18n(new JustNow()),
@@ -45,7 +45,7 @@ class PrettyTimeTagLib {
                 unitToI18n(new Millennium())
         ]
 
-        String result = prettyTime.format(date)
+        String result = prettyTime.format(date).trim()
         if (capitalize) result = StringUtils.capitalize(result)
 
         out << result
@@ -53,7 +53,7 @@ class PrettyTimeTagLib {
 
     private def unitToI18n(unit) {
         // pattern
-        unit.format.pattern = '%n %u'
+        unit.format.pattern = ' %n %u '
         // name/pluralName
         def className = unit.class.name
         className = className[className.lastIndexOf('.') + 1..-1].toLowerCase()
@@ -69,7 +69,7 @@ class PrettyTimeTagLib {
 
     private def justNowUnitToI18n(unit) {
         // pattern
-        unit.format.pattern = '%u'
+        unit.format.pattern = ' %u '
         // preffix/suffix
         unit.format.pastSuffix = g.message(code: 'prettytime.justnow.past.suffix')
         unit.format.futureSuffix = g.message(code: 'prettytime.justnow.future.suffix')
