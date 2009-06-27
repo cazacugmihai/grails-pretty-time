@@ -52,7 +52,7 @@ class PrettyTimeTagLib {
         if (capitalize) result = StringUtils.capitalize(result)
         if (showTime) {
             def format = attrs.remove('format') ?: 
-                            (CH.config.prettytime.format ?: 'hh:mm:ss a')
+                            (CH.config.plugin.prettytime.format ?: 'hh:mm:ss a')
             result += ', ' + date.format(format)
         }
 
