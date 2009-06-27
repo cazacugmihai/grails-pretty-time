@@ -1,5 +1,7 @@
 package org.grails.prettytime
 
+import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
+
 import com.ocpsoft.pretty.time.PrettyTime
 import com.ocpsoft.pretty.time.units.Century
 import com.ocpsoft.pretty.time.units.Day
@@ -21,6 +23,7 @@ class PrettyTimeTagLib {
 
     def display = {attrs, body ->
         def date = attrs.remove('date')
+        def showTime = Boolean.valueOf(attrs.remove('showTime'))
         def capitalize = Boolean.valueOf(attrs.remove('capitalize'))
 
         if (!date) throw new PrettyTimeException(
@@ -47,6 +50,11 @@ class PrettyTimeTagLib {
 
         String result = prettyTime.format(date).trim()
         if (capitalize) result = StringUtils.capitalize(result)
+        if (showTime) {
+            def format = attrs.remove('format') ?: 
+                            (CH.config.prettytime.format ?: 'hh:mm:ss a')
+            result += ', ' + date.format(format)
+        }
 
         out << result
     }

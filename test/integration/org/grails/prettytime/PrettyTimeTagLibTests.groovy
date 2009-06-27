@@ -13,30 +13,56 @@ class PrettyTimeTagLibTests extends GroovyPagesTestCase {
         def template = '<prettytime:display date="${date}"/>'
 
         shouldFailWithCause(PrettyTimeException) {
-			assertOutputEquals "", template, [date: null]
+			assertOutputEquals '', template, [date: null]
 		}
 
-        assertOutputEquals "moments ago", template, [date: new Date()]
+        assertOutputEquals MOMENTS_AGO, template, [date: new Date()]
     }
 
     void testCapitalization() {
+        def date = new DateTime()
+    
         def template = '<prettytime:display date="${date}" capitalize="true"/>'
-        assertOutputEquals MOMENTS_AGO_CAPITALIZED, template, [date: new Date()]
+        assertOutputEquals MOMENTS_AGO_CAPITALIZED, template, [date: date]
 
         template = '<prettytime:display date="${date}" capitalize="false"/>'
-        assertOutputEquals MOMENTS_AGO, template, [date: new Date()]
+        assertOutputEquals MOMENTS_AGO, template, [date: date]
 
         template = '<prettytime:display date="${date}" capitalize="${true}"/>'
-        assertOutputEquals MOMENTS_AGO_CAPITALIZED, template, [date: new Date()]
+        assertOutputEquals MOMENTS_AGO_CAPITALIZED, template, [date: date]
 
         template = '<prettytime:display date="${date}" capitalize="${false}"/>'
-        assertOutputEquals MOMENTS_AGO, template, [date: new Date()]
+        assertOutputEquals MOMENTS_AGO, template, [date: date]
     }
 
     void testJodaTime() {
         def date = new DateTime()
         def template = '<prettytime:display date="${date}"/>'
         assertOutputEquals MOMENTS_AGO, template, [date: date]
+    }
+    
+    void testShowTime() {        
+        def date = new Date()
+        def expectedOutput = "$MOMENTS_AGO, " + date.format('hh:mm:ss a')
+
+        def template = '<prettytime:display date="${date}" showTime="true"/>'
+        assertOutputEquals expectedOutput, template, [date: date]    
+        
+        template = '<prettytime:display date="${date}" showTime="${true}"/>'
+        assertOutputEquals expectedOutput, template, [date: date]     
+        
+        template = '<prettytime:display date="${date}" showTime="false"/>'
+        assertOutputEquals MOMENTS_AGO, template, [date: date]     
+        
+        template = '<prettytime:display date="${date}" showTime="${false}"/>'
+        assertOutputEquals MOMENTS_AGO, template, [date: date]     
+    }
+    
+    void testShowTimeWithFormat() {            
+        def template = '<prettytime:display date="${date}" showTime="true" format="HH:mm:ss"/>'
+        def date = new Date()
+        def expectedOutput = "$MOMENTS_AGO, " + date.format('HH:mm:ss')
+        assertOutputEquals expectedOutput, template, [date: date]    
     }
     
 }

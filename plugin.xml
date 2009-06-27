@@ -1,10 +1,12 @@
-<plugin name='pretty-time' version='0.2.1' grailsVersion='1.1.1 &gt; *'>
+<plugin name='pretty-time' version='0.2.2' grailsVersion='1.1.1 &gt; *'>
   <author>Cazacu Mihai</author>
   <authorEmail>cazacugmihai@yahoo.com</authorEmail>
   <title>Pretty-time plugin</title>
   <description>A plugin that allows you to display human readable, relative timestamps.</description>
   <documentation>http://grails.org/PrettyTime+Plugin</documentation>
   <resources>
+    <resource>UrlMappings</resource>
+    <resource>Config</resource>
     <resource>org.grails.prettytime.PrettyTimeTagLib</resource>
   </resources>
   <dependencies />
