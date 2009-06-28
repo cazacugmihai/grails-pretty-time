@@ -2,6 +2,11 @@ class PrettyTimeGrailsPlugin {
 
     def version = '0.3'
     def dependsOn = [:]
+    def pluginExcludes = [
+        'lib/joda-time-1.6.jar',
+        'grails-app/conf', 
+        'grails-app/views/**', 
+        'grails-app/web-app'] 
 
     def author = 'Cazacu Mihai'
     def authorEmail = 'cazacugmihai@yahoo.com'
