@@ -5,8 +5,8 @@
   <description>A plugin that allows you to display human readable, relative timestamps.</description>
   <documentation>http://grails.org/PrettyTime+Plugin</documentation>
   <resources>
-    <resource>UrlMappings</resource>
     <resource>org.grails.prettytime.PrettyTimeTagLib</resource>
+    <resource>UrlMappings</resource>
   </resources>
   <dependencies />
 </plugin>

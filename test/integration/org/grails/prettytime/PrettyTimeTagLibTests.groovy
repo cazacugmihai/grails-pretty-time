@@ -6,6 +6,7 @@ import org.joda.time.DateTime
 class PrettyTimeTagLibTests extends GroovyPagesTestCase {
     
     static final String MOMENTS_AGO = 'moments ago'
+    static final String ONE_DAY_AGO = '1 day ago'
     static final String MOMENTS_AGO_CAPITALIZED = 'Moments ago' 
     static transactional = false
 
@@ -17,8 +18,11 @@ class PrettyTimeTagLibTests extends GroovyPagesTestCase {
 		}
 
         assertOutputEquals MOMENTS_AGO, template, [date: new Date()]
+        
+        template = '<prettytime:display date="${date}"/>'        
+        assertOutputEquals ONE_DAY_AGO, template, [date: new Date() - 1]
     }
-
+    
     void testCapitalization() {
         def date = new DateTime()
     
