@@ -6,6 +6,7 @@
   <documentation>http://grails.org/PrettyTime+Plugin</documentation>
   <resources>
     <resource>org.grails.prettytime.PrettyTimeTagLib</resource>
+    <resource>UrlMappings</resource>
   </resources>
   <dependencies />
 </plugin>
