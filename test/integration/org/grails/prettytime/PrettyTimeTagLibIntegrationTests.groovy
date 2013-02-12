@@ -3,7 +3,7 @@ package org.grails.prettytime
 import grails.test.GroovyPagesTestCase
 import org.joda.time.DateTime
 
-class PrettyTimeTagLibTests extends GroovyPagesTestCase {
+class PrettyTimeTagLibIntegrationTests extends GroovyPagesTestCase {
     
     static final String MOMENTS_AGO = 'moments ago'
     static final String ONE_DAY_AGO = '1 day ago'
@@ -13,9 +13,7 @@ class PrettyTimeTagLibTests extends GroovyPagesTestCase {
     void testDisplay() {
         def template = '<prettytime:display date="${date}"/>'
 
-        shouldFailWithCause(PrettyTimeException) {
-			assertOutputEquals '', template, [date: null]
-		}
+        assertOutputEquals '', template, [date: null]
 
         assertOutputEquals MOMENTS_AGO, template, [date: new Date()]
         
