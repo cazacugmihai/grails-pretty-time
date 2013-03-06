@@ -36,14 +36,14 @@ class PrettyTimeTagLibTests {
         assert applyTemplate('<prettytime:display date="${date}" />', [date: dt]) == '2 weeks ago'
 
     }
-	
-	void testFormatDateWithLong() {
-		[new Date(), new Date() - 7, new Date() - 14].each { dateToTest ->
-			assert applyTemplate('<prettytime:display date="${date}" />', [date: dateToTest]) == 
-				applyTemplate('<prettytime:display date="${date}" />', [date: dateToTest.getTime()])
-		}
-	}
-	
+
+    void testFormatDateWithLong() {
+        [new Date(), new Date() - 7, new Date() - 14].each { dateToTest ->
+            assert applyTemplate('<prettytime:display date="${date}" />', [date: dateToTest]) ==
+                    applyTemplate('<prettytime:display date="${date}" />', [date: dateToTest.getTime()])
+        }
+    }
+
 
     void testWithDifferentLocale() {
 

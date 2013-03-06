@@ -17,7 +17,8 @@ class PrettyTimeTagLib {
         if ('org.joda.time.DateTime'.equals(date?.class?.name)) {
             date = date.toDate()
         }
-        else if ('java.lang.Long'.equals(date?.class?.name)) {
+
+        if ('java.lang.Long'.equals(date?.class?.name)) {
             date = new Date(date)
         }
 
