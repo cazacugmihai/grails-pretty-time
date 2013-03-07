@@ -8,7 +8,7 @@ This plugin allows you to display human readable, relative timestamps. It is bas
 ## Installation
 
 ```
-compile ":pretty-time:2.1.3.Final-1.0.1"
+compile ":pretty-time:2.1.3.Final-1.1.0"
 ```
 
 ## Requirements
