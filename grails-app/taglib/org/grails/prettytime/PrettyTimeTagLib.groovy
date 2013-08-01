@@ -35,6 +35,6 @@ class PrettyTimeTagLib {
             result += ', ' + date.format(format)
         }
 
-        out << result
+        out << """<time datetime="${g.formatDate(date: date)}" title="${g.formatDate(date: date)}">${result}</time>"""
     }
 }
