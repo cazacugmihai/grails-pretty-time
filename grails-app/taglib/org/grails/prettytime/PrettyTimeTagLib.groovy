@@ -8,6 +8,14 @@ class PrettyTimeTagLib {
 
     static namespace = "prettytime"
 
+    /**
+     * Display human readable, relative timestamps for given dates.
+     *
+     * @attr date REQUIRED date to be converted
+     * @attr showTime display the time value behind the human readable date
+     * @attr capitalize capitalizes the output text e.g. 'Moments ago'
+     * @attr html5wrapper wraps the output into a html5 time tag
+     */
     def display = { attrs, body ->
         def date = attrs.remove('date')
         def showTime = Boolean.valueOf(attrs.remove('showTime'))
