@@ -6,7 +6,6 @@ import org.joda.time.Period
 class PrettyTimeTagLibTests {
 
     void testFormatDate() {
-
         assert applyTemplate('<prettytime:display />') == ''
 
         assert applyTemplate('<prettytime:display date="${new Date()}" />') == 'moments ago'
@@ -22,19 +21,14 @@ class PrettyTimeTagLibTests {
     }
 
     void testFormatDateWIthJodaTime() {
-
         def dt = new DateTime()
-
         assert applyTemplate('<prettytime:display date="${date}" />', [date: dt]) == 'moments ago'
 
         dt = dt.minus(Period.days(7))
-
         assert applyTemplate('<prettytime:display date="${date}" />', [date: dt]) == '1 week ago'
 
         dt = dt.minus(Period.days(7))
-
         assert applyTemplate('<prettytime:display date="${date}" />', [date: dt]) == '2 weeks ago'
-
     }
 
     void testFormatDateWithLong() {
@@ -44,9 +38,7 @@ class PrettyTimeTagLibTests {
         }
     }
 
-
     void testWithDifferentLocale() {
-
         assert applyTemplate('<prettytime:display date="${new Date()}" />') == 'moments ago'
 
         request.addPreferredLocale(Locale.GERMAN)
@@ -61,4 +53,5 @@ class PrettyTimeTagLibTests {
         assert applyTemplate('<prettytime:display date="${new Date() - 7}" />') == '1 tydzień temu'
         assert applyTemplate('<prettytime:display date="${new Date() - 14}" />') == '2 tygodni(e) temu'
     }
+
 }
