@@ -25,7 +25,8 @@ class PrettyTimeGrailsPlugin {
     // Any additional developers beyond the author specified above.
     def developers = [
         [ name: "Janusz Slota", email: "janusz.slota@nixilla.com" ],
-        [ name: "Diego Toharia", email: "diego@toharia.com" ]
+        [ name: "Diego Toharia", email: "diego@toharia.com" ],
+        [ name: "Stefan Glase", email: "stefan.glase@googlemail.com" ]
     ]
 
     // Location of the plugin's issue tracker.
