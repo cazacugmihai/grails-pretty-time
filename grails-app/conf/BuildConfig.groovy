@@ -16,9 +16,9 @@ grails.project.dependency.resolution = {
     }
     dependencies {
 
-        compile 'org.ocpsoft.prettytime:prettytime:2.1.3.Final'
+        compile 'org.ocpsoft.prettytime:prettytime:3.0.2.Final'
 
-        compile('joda-time:joda-time:2.1') {
+        compile('joda-time:joda-time:2.2') {
             export = false
         }
     }
@@ -28,7 +28,7 @@ grails.project.dependency.resolution = {
             export = false
         }
 
-        compile(':code-coverage:1.2.5') {
+        compile(':code-coverage:1.2.6') {
             export = false
         }
     }
