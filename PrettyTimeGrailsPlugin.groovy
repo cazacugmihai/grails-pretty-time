@@ -1,6 +1,6 @@
 class PrettyTimeGrailsPlugin {
     // the plugin version
-    def version = "2.1.3.Final-1.1.0"
+    def version = "3.0.2.Final-1.0.0"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // resources that are excluded from plugin packaging
@@ -25,7 +25,8 @@ class PrettyTimeGrailsPlugin {
     // Any additional developers beyond the author specified above.
     def developers = [
         [ name: "Janusz Slota", email: "janusz.slota@nixilla.com" ],
-        [ name: "Diego Toharia", email: "diego@toharia.com" ]
+        [ name: "Diego Toharia", email: "diego@toharia.com" ],
+        [ name: "Stefan Glase", email: "stefan.glase@googlemail.com" ]
     ]
 
     // Location of the plugin's issue tracker.

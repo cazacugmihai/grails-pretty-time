@@ -8,7 +8,7 @@ This plugin allows you to display human readable, relative timestamps. It is bas
 ## Installation
 
 ```
-compile ":pretty-time:2.1.3.Final-1.0.1"
+compile ":pretty-time:3.0.2.Final-1.0.0"
 ```
 
 ## Requirements
@@ -52,6 +52,10 @@ Build in - uses prettytime library translations. TagLib included in this plugin 
         <td>Show the time (default: false). Ex: "2 days ago<strong class="bold">, 12:00:25 AM</strong>".</td>
     </tr>
     <tr class="table-even">
+        <td><strong class="bold">html5wrapper</strong></td>
+        <td>Wrap the output text (default: false). Ex: "moments ago" will be wrapped with "&lt;time datetime=&quot;some date&quot; title=&quot;some date&quot;&gt;moments ago&lt;/time&gt;".</td>
+    </tr>
+    <tr class="table-odd">
         <td><strong class="bold">format</strong></td>
         <td>The format to use for the date (default: "hh:mm:ss a"). The default value is set by "default.date.format" in I18n.</td>
     </tr>
