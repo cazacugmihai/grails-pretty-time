@@ -45,6 +45,7 @@
 .idea/
 /build
 /.gradle
-/gradle.properties
-/gradle/wrapper/gradle-wrapper.jar
-/gradle/wrapper/gradle-wrapper.properties
+# these are actually OK to have checked in and normal
+#/gradle.properties
+#/gradle/wrapper/gradle-wrapper.jar
+#/gradle/wrapper/gradle-wrapper.properties

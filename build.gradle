@@ -12,11 +12,11 @@ buildscript {
 }
 
 plugins {
-    id "io.spring.dependency-management" version "0.4.0.RELEASE"
-    id "com.jfrog.bintray" version "1.1"
+    id "io.spring.dependency-management" version "0.5.2.RELEASE"
+    id "com.jfrog.bintray" version "1.2"
 }
 
-version "4.0.0-SNAPSHOT"
+version "4.0.0"
 group "org.grails.plugins"
 
 apply plugin: 'maven-publish'
@@ -57,8 +57,8 @@ dependencies {
     provided "org.springframework.boot:spring-boot-autoconfigure"
     provided "org.springframework.boot:spring-boot-starter-tomcat"
 
-    compile 'org.ocpsoft.prettytime:prettytime:3.0.2.Final'
-    compile('joda-time:joda-time:2.2')
+    compile 'org.ocpsoft.prettytime:prettytime:4.0.0.Final'
+    compile('joda-time:joda-time:2.9.1')
 
     provided "org.grails:grails-web-boot"
     provided "org.grails:grails-dependencies"
