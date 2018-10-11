@@ -11,6 +11,14 @@ This plugin allows you to display human readable, relative timestamps. It is bas
 compile ":pretty-time:3.0.2.Final-1.0.0"
 ```
 
+## Installation for 2.x
+```
+grails install-plugin pretty-time
+plugins {
+    compile ":pretty-time:2.1.3.Final-1.0.1"
+}
+```
+
 ## Requirements
 
 * Grails 2.0 or above
